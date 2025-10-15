@@ -2,8 +2,8 @@
 project_name           = "exhback"                                         # Name of your project
 region                 = "us-west-2"                                      # Region where resources should be created
 cloudfront_price_class = "PriceClass_All" # Select one from a list 
-root_domain_name       = ""                                     # Your root domain name, don't use subdomain here
-img_domain_name        = ""                                 # Image subdomain
+root_domain_name       = "example.com"                                     # Your root domain name, don't use subdomain here
+img_domain_name        = "img.example.com"                                 # Image subdomain
 db_engine_version      = "16.2"
 db_instance_class      = "db.t4g.micro"
 db_storage             = 20
