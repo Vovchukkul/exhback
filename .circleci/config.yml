@@ -189,7 +189,7 @@ jobs:
       - persist_to_workspace:
           root: ./
           paths:
-            - docker_image_backend.tar
+            - ./
     
   # run_unit_tests:
   #   machine:
@@ -293,7 +293,7 @@ jobs:
       AWS_CONFIG_FILE: /home/circleci/project/config
     steps:
       - attach_workspace:
-          at: .
+          at: ./
       - configure_aws_credentials
       - aws-cli/setup:
           profile_name: default
