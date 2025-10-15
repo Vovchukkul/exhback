@@ -123,9 +123,9 @@ jobs:
               json_data=$(cat '.terraform_files/modules/ecs_fargate/templates/container-definitions.json.tpl')
               
               # Append the database username secret to the JSON template
-              json_data=$(echo $json_data | jq --arg  vf "$secrets_manager_arn:username::" '.[0].secrets += [{"name": "DATABASE_USER", "valueFrom": $vf}]')
+              json_data=$(echo $json_data | jq --arg  vf "$secrets_manager_arn:username::" '.[0].secrets += [{"name": "POSTGRES_USER", "valueFrom": $vf}]')
               # Append the database password secret to the JSON template
-              json_data=$(echo $json_data | jq --arg  vf "$secrets_manager_arn:password::" '.[0].secrets += [{"name": "DATABASE_PASSWORD", "valueFrom": $vf}]')
+              json_data=$(echo $json_data | jq --arg  vf "$secrets_manager_arn:password::" '.[0].secrets += [{"name": "POSTGRES_PASSWORD", "valueFrom": $vf}]')
               
               # Save the updated JSON template, overwriting the original file
               echo "$json_data" > '.terraform_files/modules/ecs_fargate/templates/container-definitions.json.tpl'
@@ -364,9 +364,9 @@ jobs:
             json_data=$(cat '.terraform_files/modules/ecs_fargate/templates/container-definitions.json.tpl')
             
             # Append the database username secret to the JSON template
-            json_data=$(echo $json_data | jq --arg  vf "$secrets_manager_arn:username::" '.[0].secrets += [{"name": "DATABASE_USER", "valueFrom": $vf}]')
+            json_data=$(echo $json_data | jq --arg  vf "$secrets_manager_arn:username::" '.[0].secrets += [{"name": "POSTGRES_USER", "valueFrom": $vf}]')
             # Append the database password secret to the JSON template
-            json_data=$(echo $json_data | jq --arg  vf "$secrets_manager_arn:password::" '.[0].secrets += [{"name": "DATABASE_PASSWORD", "valueFrom": $vf}]')
+            json_data=$(echo $json_data | jq --arg  vf "$secrets_manager_arn:password::" '.[0].secrets += [{"name": "POSTGRES_PASSWORD", "valueFrom": $vf}]')
             
             # Save the updated JSON template, overwriting the original file
             echo "$json_data" > '.terraform_files/modules/ecs_fargate/templates/container-definitions.json.tpl'
