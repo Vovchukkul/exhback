@@ -453,6 +453,7 @@ workflows:
           requires:
             # - run_database_migrations
             - init_update_infrastructure
+            - build_docker_image
           filters:
             branches:
               only:
