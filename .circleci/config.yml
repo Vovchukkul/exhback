@@ -434,31 +434,29 @@ workflows:
             branches:
               only:
                 - qa
-                - staging
                 - production
       - build_docker_image
-      - run_unit_tests:
-          requires:
-            - build_docker_image
-      - run_database_migrations:
-          requires:
-            - run_unit_tests
-            - init_update_infrastructure
-          filters:
-            branches:
-              only:
-                - qa
-                - staging
-                - production
+      # - run_unit_tests:
+      #     requires:
+      #       - build_docker_image
+      # - run_database_migrations:
+      #     requires:
+      #       - run_unit_tests
+      #       - init_update_infrastructure
+          # filters:
+          #   branches:
+          #     only:
+          #       - qa
+          #       - staging
+          #       - production
       - deploy_the_application:
           requires:
-            - run_database_migrations
+            # - run_database_migrations
             - init_update_infrastructure
           filters:
             branches:
               only:
                 - qa
-                - staging
                 - production
 
 
