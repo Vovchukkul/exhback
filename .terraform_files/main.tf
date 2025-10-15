@@ -2,17 +2,17 @@
 terraform {
   backend "s3" {
     profile              = "root"
-    bucket               = "PROJECT_NAME-tfstate" # Replace PROJECT_NAME with the name of your project
+    bucket               = "exhback-tfstate" # Replace PROJECT_NAME with the name of your project
     workspace_key_prefix = "environments-backend"
     key                  = "resources.tfstate"
-    region               = "us-east-1" # Select your default region
+    region               = "us-west-2" # Select your default region
     encrypt              = true
   }
 }
 
 provider "aws" {
   shared_config_files = local.config_file_path
-  region              = "us-east-1"
+  region              = "us-west-2"
   profile             = "root"
   alias               = "root"
 }
